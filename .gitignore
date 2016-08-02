@@ -132,3 +132,7 @@ gen/
 
 # Local configuration file (sdk path, etc)
 local.properties
+
+# Ignore cordova platforms and plugins folders
+platforms
+plugins
