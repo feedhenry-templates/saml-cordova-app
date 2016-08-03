@@ -1,4 +1,5 @@
-var $ = require("jquery");
+var $ = require('jquery');
+var $fh = require('fh-js-sdk');
 
 $(document).ready(function() {
 
