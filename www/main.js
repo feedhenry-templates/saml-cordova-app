@@ -1,98 +1,4 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var $ = require('jquery');
-var $fh = require('fh-js-sdk');
-
-$(document).ready(function() {
-
-  function updateDetails(details) {
-    $('.first_name').text(details.first_name);
-    $('.last_name').text(details.last_name);
-    $('.email').text(details.email);
-    $('.expires').text(details.expires);
-  }
-
-  function showSignedIn() {
-    $('.signed-in').show();
-    $('.sign-in').hide();
-
-    $fh.cloud({
-        path: 'sso/session/valid',
-        method: "POST",
-        data: {
-          "token": $fh._getDeviceId()
-        }
-      },
-      function(res) {
-        updateDetails(res);
-      },
-      function(code, errorprops, params) {
-        console.error(code, errorprops, params);
-        alert('An error occured: ' + code + ' : ' + errorprops);
-      }
-    );
-  }
-
-  $('.sign-in-button').on('click', function(e) {
-    $fh.cloud({
-        path: 'sso/session/login_host',
-        method: "POST",
-        data: {
-          "token": $fh._getDeviceId()
-        }
-      },
-      function(res) {
-        console.log('sso host:' + res.sso);
-
-        var browser = cordova.InAppBrowser.open(res.sso, '_blank', 'location=yes');
-
-        browser.addEventListener('loadstop', function(event) {
-          // Lets inject some CSS to apply a "Mobile" style to this IdP login page
-          browser.insertCSS({
-            code: 'body { background: #fff !important; font-size: 18px; } input { font-size: 18px; }'
-          }, function injected() {
-            console.log('injection done!', arguments);
-          });
-
-          if (event.url.indexOf('/login/ok') > -1) { // User now logged in!
-            showSignedIn();
-            browser.close();
-            setTimeout(function() {
-              navigator.notification.alert(
-                "Great, you're signed in!",
-                null,
-                'SSO',
-                'OK'
-              );
-            }, 500);
-          }
-          console.error('stop: ' + event.url);
-        });
-        browser.addEventListener('loaderror', function(event) {
-          browser.close();
-          setTimeout(function() {
-            navigator.notification.alert(
-              'Error displaying SSO login page, please try again',
-              null,
-              'SSO',
-              'OK'
-            );
-          }, 500);
-
-          console.error('error: ' + event.message);
-        });
-        browser.addEventListener('exit', function(event) {
-          console.error(event.type);
-        });
-      },
-      function(code, errorprops, params) {
-        console.error(code, errorprops, params);
-        alert('An error occured: ' + code + ' : ' + errorprops);
-      }
-    );
-  });
-
-});
-},{"fh-js-sdk":2,"jquery":3}],2:[function(require,module,exports){
 (function (global){
 !function(e){if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.feedhenry=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 (function (global){
@@ -13664,7 +13570,7 @@ module.exports = {
 (19)
 });
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],3:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 /*eslint-disable no-unused-vars*/
 /*!
  * jQuery JavaScript Library v3.1.0
@@ -23740,4 +23646,9 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}]},{},[1]);
+},{}],3:[function(require,module,exports){
+//expose broserified npm dependencies as global variables
+window.$ = require('jquery');
+window.$fh = require('fh-js-sdk');
+
+},{"fh-js-sdk":1,"jquery":2}]},{},[3]);

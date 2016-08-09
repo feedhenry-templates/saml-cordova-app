@@ -1,6 +1,3 @@
-var $ = require('jquery');
-var $fh = require('fh-js-sdk');
-
 $(document).ready(function() {
 
   function updateDetails(details) {
