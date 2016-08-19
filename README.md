@@ -1,14 +1,14 @@
 # SAML Client
 ---------
 Author: Erik Jan de Wit   
-Level: Intermediate
-Technologies: Javascript, Cordova, RHMAP  
-Summary: A demonstration of how to synchronize a single collection with RHMAP.
-Community Project : [Feed Henry](http://feedhenry.org)
-Target Product: RHMAP
-Product Versions: RHMAP 3.8.0+
-Source: https://github.com/feedhenry-templates/sync-cordova-app  
-Prerequisites: fh-js-sdk : 3.0.+, cordova 4.0+
+Level: Intermediate   
+Technologies: Javascript, Cordova, RHMAP   
+Summary: A demonstration of how to synchronize a single collection with RHMAP.   
+Community Project: [Feed Henry](http://feedhenry.org)   
+Target Product: RHMAP   
+Product Versions: RHMAP 3.8.0+   
+Source: https://github.com/feedhenry-templates/sync-cordova-app   
+Prerequisites: fh-js-sdk : 3.0.+, cordova 4.0+   
 
 ## What is it?
 
