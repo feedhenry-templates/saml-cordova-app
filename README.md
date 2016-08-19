@@ -30,8 +30,13 @@ If you wish to contribute to this template, the following information may be hel
  * cordova: 4.0+
 
 ## Build instructions
+ * npm install
  * Edit [fhconfig.json](www/fhconfig.json) to include the relevant information from RHMAP.  
  * cordova serve  
+
+The `fh-js-sdk` and other development dependencies are defined in [package.json](package.json) and included in a [browserified script](www/js/main.js).
+Code used in this template is not browserified, in order for you to be able to experiment with it on the studio. 
+The [init.js](www/js/init.js) file is browserified and acts as a bridge between template script and npm dependencies.
  
 ## How does it work?
 
