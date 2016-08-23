@@ -35,9 +35,9 @@ If you wish to contribute to this template, the following information may be hel
  * cordova serve  
 
 The `fh-js-sdk` and other development dependencies are defined in [package.json](package.json) and included in a [browserified script](www/js/main.js).
-Code used in this template is not browserified, in order for you to be able to experiment with it on the studio. 
-The [init.js](www/js/init.js) file is browserified and acts as a bridge between template script and npm dependencies.
- 
+The [init.js](www/js/init.js) file is browserified and acts as a bridge between template script and npm dependencies. 
+All the other JavaScript files in the template app will not be browserified, in order for you to be able to experiment live edit in RHMAP Studio preview.
+
 ## How does it work?
 
 Click the "Sign In" button to sign in via your configured SAML IdP, this will open a webbrowser that you can use to login
