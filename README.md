@@ -8,11 +8,11 @@ Community Project: [Feed Henry](http://feedhenry.org)
 Target Product: RHMAP   
 Product Versions: RHMAP 3.8.0+   
 Source: https://github.com/feedhenry-templates/sync-cordova-app   
-Prerequisites: fh-js-sdk : 3.0.+, cordova 4.0+   
+Prerequisites: fh-js-sdk : 2.14.+, cordova 5.0+   
 
 ## What is it?
 
-This application shows how you can use SAML with the RHMAP platform, it should be used in combination with the [SAML service](https://github.com/feedhenry-templates/saml-service) and the [SAML could app](https://github.com/feedhenry-templates/saml-cloud-app) have a look at the [notes](https://github.com/feedhenry-templates/saml-service/blob/master/NOTES.md) how to setup the service.  Refer to [fhconfig.json](www/fhconfig.json) for configuraiton.
+This application shows how you can use SAML with the RHMAP platform, it should be used in combination with the [SAML service](https://github.com/feedhenry-templates/saml-service) and the [SAML could app](https://github.com/feedhenry-templates/saml-cloud-app) have a look at the [notes](https://github.com/feedhenry-templates/saml-service/blob/master/NOTES.md) how to setup the service.  Refer to [fhconfig.json](www/fhconfig.json) for configuration.
 
 If you do not have access to a RHMAP instance, you can sign up for a free instance at [https://openshift.feedhenry.com/](https://openshift.feedhenry.com/).
 
@@ -26,17 +26,28 @@ This application and its cloud services are available as a project template in R
 If you wish to contribute to this template, the following information may be helpful; otherwise, RHMAP and its build facilities are the preferred solution.
 
 ###  Prerequisites  
- * fh-js-sdk : 3.0.+
- * cordova: 4.0+
+ * fh-js-sdk : 2.14.+
+ * cordova: 5.0+
 
 ## Build instructions
  * npm install
  * Edit [fhconfig.json](www/fhconfig.json) to include the relevant information from RHMAP.  
  * cordova serve  
 
-The `fh-js-sdk` and other development dependencies are defined in [package.json](package.json) and included in a [browserified script](www/js/main.js).
-The [init.js](www/js/init.js) file is browserified and acts as a bridge between template script and npm dependencies. 
-All the other JavaScript files in the template app will not be browserified, in order for you to be able to experiment live edit in RHMAP Studio preview.
+### npm dependencies
+The `fh-js-sdk` and other development dependencies are defined in [package.json](package.json) and included in a [browserified script](www/main.js).
+
+* This generated [main.js](www/main.js) file is checked-in to allow RHMAP studio preview to statically serve dependencies.
+
+* The [init.js](www/js/init.js) file is browserified and acts as a bridge between template script and npm dependencies. 
+
+* All the other JavaScript files in the template app will not be browserified, in order for you to be able to experiment live edit in RHMAP Studio preview.
+
+### Updating fh-js-sdk version
+To update the JS SDK:
+- change the version in [package.json](package.json)
+- run `npm install` a grunt task is automatically ran to regenerate main.js
+- check-in git repo the npackage.json + main.js
 
 ## How does it work?
 
