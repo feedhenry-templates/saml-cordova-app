@@ -32,6 +32,7 @@ If you wish to contribute to this template, the following information may be hel
 ## Build instructions
  * npm install
  * Edit [fhconfig.json](www/fhconfig.json) to include the relevant information from RHMAP.  
+ * Edit [config.xml](config.xml) to add an access tag for the SAML_ENTRY_POINT from RHMAP.
  * cordova serve  
 
 ### npm dependencies
