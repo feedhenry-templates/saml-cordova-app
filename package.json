@@ -20,10 +20,10 @@
   },
   "devDependencies": {},
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=4.0.0"
   },
   "scripts": {
     "install": "./node_modules/grunt-cli/bin/grunt browserify"
   },
-  "license": "mit"
+  "license": "Apache-2.0"
 }
