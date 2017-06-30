@@ -21,9 +21,9 @@ $(document).ready(function() {
       function(res) {
         updateDetails(res);
       },
-      function(code, errorprops, params) {
-        console.error(code, errorprops, params);
-        alert('An error occured: ' + code + ' : ' + errorprops);
+      function(msg, error) {
+        console.error(msg, error);
+        alert('An error occured: ' + msg + ' : ' + JSON.stringify(error));
       }
     );
   }
@@ -80,9 +80,9 @@ $(document).ready(function() {
           console.error(event.type);
         });
       },
-      function(code, errorprops, params) {
-        console.error(code, errorprops, params);
-        alert('An error occured: ' + code + ' : ' + errorprops);
+      function(msg, error) {
+        console.error(msg, error);
+        alert('An error occured: ' + msg + ' : ' + JSON.stringify(error));
       }
     );
   });
