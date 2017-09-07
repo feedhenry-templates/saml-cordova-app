@@ -10,9 +10,9 @@
     <engine name="ios" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
-    <plugin name="cordova-plugin-whitelist" spec="https://github.com/apache/cordova-plugin-whitelist.git#rel/1.2.2" />
-    <plugin name="com.feedhenry.plugins.apis" spec="https://github.com/fheng/fh-cordova-plugins-api.git#fh0.0.6" />
     <plugin name="cordova-plugin-device" spec="https://github.com/apache/cordova-plugin-device#rel/1.1.2" />
     <plugin name="cordova-plugin-dialogs" spec="https://github.com/apache/cordova-plugin-dialogs.git#rel/1.2.1" />
     <plugin name="cordova-plugin-inappbrowser" spec="https://github.com/apache/cordova-plugin-inappbrowser.git#rel/1.4.0" />
+    <plugin name="cordova-plugin-whitelist" spec="https://github.com/apache/cordova-plugin-whitelist.git#rel/1.2.2" />
+    <plugin name="fh-cordova-plugins-api" spec="https://github.com/fheng/fh-cordova-plugins-api.git#fh0.0.7" />
 </widget>
