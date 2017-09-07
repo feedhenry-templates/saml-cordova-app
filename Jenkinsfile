@@ -34,15 +34,11 @@ node(platform) {
         checkout scm
     }
 
-    stage("Install local Cordova") {
-        sh "npm install cordova@6.3.1"
-    }
-
     stage("Prepare") {
-        sh 'npm install'
-        sh "node_modules/cordova/bin/cordova platform rm ${platform}"
-        sh "node_modules/cordova/bin/cordova platform add ${platform}"
-        sh "node_modules/cordova/bin/cordova prepare ${platform}"
+        sh 'npm install --production'
+        sh "cordova platform rm ${platform}"
+        sh "cordova platform add ${platform}"
+        sh "cordova prepare ${platform}"
         sh 'rm -rf node_modules'
     }
 
