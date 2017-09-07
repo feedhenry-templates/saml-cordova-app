@@ -44,12 +44,10 @@ node(platform) {
 
     stage("Build") {
         if (platform == 'android') {
-            withEnv(['CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL=https://services.gradle.org/distributions/gradle-2.13-bin.zip']) {
-                if (BUILD_CONFIG == 'debug') {
-                   sh "node_modules/cordova/bin/cordova build ${platform} --debug"
-                } else {
-                   sh "node_modules/cordova/bin/cordova build ${platform} --release"
-                }
+            if (BUILD_CONFIG == 'debug') {
+                sh "cordova build ${platform} --debug"
+            } else {
+                sh "cordova build ${platform} --release"
             }
         } else {
             xcodeBuild(
@@ -92,7 +90,7 @@ node(platform) {
                 profileId: "${CODE_SIGN_PROFILE_ID}",
                 clean: CLEAN,
                 verify: true,
-                ipaname: OUTPUT_FILE_NAME,
+                ipaName: OUTPUT_FILE_NAME,
                 appPath: "platforms/${platform}/build/${OSX_BUILD_CONFIG}-${SDK}/${PROJECT_NAME}.app"
             )
         }
